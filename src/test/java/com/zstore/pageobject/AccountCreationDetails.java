@@ -1,5 +1,6 @@
 package com.zstore.pageobject;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -50,6 +51,11 @@ public class AccountCreationDetails {
 	//mobile_number
 	@FindBy(xpath="//input[@id='mobile_number']")
 	WebElement mobile_number;
+	
+	
+	
+	@FindBy(xpath="/html/body")
+	WebElement body;
 
 	////button[normalize-space()='Create Account']
 	@FindBy(xpath="//*[@id=\"form\"]/div/div/div/div/form/button")
@@ -91,6 +97,14 @@ public class AccountCreationDetails {
 		Select obj= new Select(country);
 		obj.selectByVisibleText(countryName);
 	}
+	
+public void scrollBy() {
+		
+		JavascriptExecutor jsExecutor= (JavascriptExecutor)ldriver;
+		jsExecutor.executeScript("windowscrollto(0, document.body.scrollHeight)");
+	}
+
+
 	public void enterState(String stateName) {
 		state.sendKeys(stateName);
 	}
@@ -99,7 +113,14 @@ public class AccountCreationDetails {
 	}
 	public void enterZipcode(String code) {
 		zipcode.sendKeys(code);
+		
 	}
+	
+	public void clickBody() {
+		body.click();
+	}
+	
+	
 	public void enterMobile(String mobileNum) {
 		mobile_number.sendKeys(mobileNum);
 	}
@@ -114,4 +135,6 @@ public class AccountCreationDetails {
 	public void clickAccount() {
 		ContButton.click();
 	}
+
+	
 }

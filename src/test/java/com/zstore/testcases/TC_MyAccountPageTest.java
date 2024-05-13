@@ -1,7 +1,9 @@
 package com.zstore.testcases;
 
 import java.io.IOException;
+import java.util.Random;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
 import com.zstore.pageobject.AccountCreationDetails;
@@ -20,12 +22,14 @@ public class TC_MyAccountPageTest extends BaseClass {
 		indexPage ip=new indexPage(driver);
 		Logger.info("*************click for signup*******************");
 		ip.clickOnsignup();
+		Thread.sleep(1000);
 		
 		Login login=new Login(driver);
 		Logger.info("*************Enter user name*******************");
 		login.singupName("Landen Haris");
 		Logger.info("*************Enter email address*******************");
-		login.singupEmail("dondon1391@yahoo.com");
+		int randomEmail=new Random().nextInt(10000);
+		login.singupEmail("dondon"+randomEmail +"@yahoo.com");
 		login.clickOnSignup();
 		
 		Logger.info("*************Enter user details to create user account**********");
@@ -46,27 +50,40 @@ public class TC_MyAccountPageTest extends BaseClass {
 		Logger.info("*************Enter Address*******************");
 		acctdetails.enterAddress(" 5866 120 street");
 		
-		Thread.sleep(2000);
+		
 		Logger.info("*************Enter Country*******************");
 		acctdetails.enterCountry("United States");
 	
 		Logger.info("*************Enter State*******************");
 		acctdetails.enterState("Texas");
 		
+		
+		acctdetails.clickBody();
+		Thread.sleep(3000);
+		
 		Logger.info("*************Enter City*******************");
 		acctdetails.enterCity("Dallas");
+		 
+		
+		Logger.info("*************window scroll by *******************");
+		
+		
+		
 		Thread.sleep(2000);
 		Logger.info("*************Enter Zip code*******************");
 		acctdetails.enterZipcode("785422");
 		
+		
+		
 		Logger.info("*************Enter Cell number*******************");
 		acctdetails.enterMobile("0197523654587");
 		
-		Thread.sleep(2000);
+		
+		
 		Logger.info("*************Click create account Button*******************");
 		acctdetails.clickCreateAccount();
 		
-		Thread.sleep(2000);
+		
 		
 		String acctCreatedText=acctdetails.getCreationText();
 		if(acctCreatedText.equals("ACCOUNT CREATED!")) {
@@ -81,7 +98,7 @@ public class TC_MyAccountPageTest extends BaseClass {
 		}
 
 		acctdetails.clickAccount();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		
 	}
 

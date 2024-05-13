@@ -1,5 +1,6 @@
 package com.zstore.pageobject;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -43,6 +44,7 @@ public class RegisterUserAccount {
 	public void enterPassword(String pass) {
 		password.sendKeys(pass);
 	}
+	
 	public void clickLogin() {
 		login.click();
 	}

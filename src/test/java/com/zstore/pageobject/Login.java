@@ -26,7 +26,7 @@ WebDriver ldriver;
 	@FindBy(xpath="//input[@data-qa='signup-email']")
 	WebElement email;
 	
-	@FindBy(xpath="//*[@class='fa fa-lock']")
+	@FindBy(xpath="//button[normalize-space()='Signup']")
 	WebElement singupClick;
 	
 	public void clickOnsignup() {
